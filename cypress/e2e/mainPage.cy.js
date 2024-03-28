@@ -1,16 +1,16 @@
 ///      <reference types="cypress"/>
 
-describe('Main Page Elements', () => {
-    it('Verify all alerts are displayed ' , () => {
-        cy.visit('https://billygraham.org/')
-        cy.get('h4 .radius.label.alert').should('be.visible').should('have.text', 'SEE TOUR DATES:')
-        cy.get('a.alert').should('be.visible').should('have.text', 'Franklin Graham God Loves You Frontera Tour  ')
-        cy.get('i.general.foundicon-right-arrow').should('be.visible')
-        cy.get('a.close').should('be.visible')
+describe('Home Page Elements', () => {
+    it('Verify top alert is displayed ' , () => {
+        cy.visit('/')
+        cy.get('div[class="fg-easter-message"]').should('be.visible')
+        cy.contains('a.button', 'Full TV Listings').should('be.visible')
+        cy.contains('a.button', 'Watch Trailer').should('be.visible')
+       
     })
 
-    it.only('Verify all alements in top bar section with correct names', () => {
-        cy.visit('https://billygraham.org/')
+    it('Verify all alements in top bar section with correct names', () => {
+        cy.visit('/')
         cy.get('.name > a > img').should('exist').should('be.visible')
           //.should('contain.text', 'Billy Graham Evangelistic Association')
         cy.get('ul#grow-your-faith.dropdown.medium.content.left').should('exist')
@@ -21,9 +21,12 @@ describe('Main Page Elements', () => {
         cy.get('ul.right [href="/about"]').should('exist').should('include.text', 'About')
         cy.get('ul.right [href="/give"]').should('exist').should('include.text', 'Give')
         cy.get('i.foundicon-search').should('exist').should('be.visible').click()
-        cy.get(':nth-child(1) > .small-12 > form > .row > .small-10 > input').should('contain', 'Search')
+        cy.get('i.foundicon-search').click()
+        cy.get('div#searchDrop.container.show-for-medium-up').should('exist')
         
 
     })
+
+    
 
 })    
