@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.6.6"
+  },
+  "dependencies": {
+    "cypress-real-events": "^1.12.0"
   }
 }
